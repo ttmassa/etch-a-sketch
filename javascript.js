@@ -9,11 +9,15 @@ function createGrid(size) {
     grid.appendChild(square);
 
     square.addEventListener('mouseover', () => {
-      square.classList.add('square-hover');
+        square.addEventListener('mousemove', (event) => {
+          if (event.buttons === 1) {
+            square.classList.add('square-hover');
+          }
+        });
     });
 
-    square.addEventListener('mouseout', () => {
-      square.classList.remove('square-hover');
+    square.addEventListener('click', () => {
+        square.classList.add('square-hover');
     });
   }
 }
